@@ -1,14 +1,15 @@
 var express = require('express');
-var app = express(); // criando nova instância do Express
+var app = express();
 
 app.configure(function(){
-	app.set('view engine', 'jade');
+    app.set('view engine', 'jade');
 	// http://nodejs.org/docs/latest/api/globals.html#globals_dirname
-	app.use(express.static(__dirname + '/public'));
+    app.use(express.static(__dirname + '/public'));
 });
 
-app.get('/', function(request, reponse) {
-	reponse.render('index.jade', {layout : false});
+app.get('/', function(req, res){
+    res.render("index.jade", {layout:false});
 });
 
-app.listen(5000);
+app.listen(8000);
+console.log("SocialNet is listening to port 8000.");
